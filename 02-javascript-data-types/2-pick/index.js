@@ -6,4 +6,10 @@
  */
 export const pick = (obj, ...fields) => {
 
+    return [...fields].reduce((newObj, item) => {
+        for (let [key, value] of Object.entries(obj)) {
+            if (item === key) newObj[item] = value;
+        }
+        return newObj;
+    }, {});
 };
